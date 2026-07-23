@@ -2,10 +2,8 @@ document.getElementById('loginForm').addEventListener('submit', function(e){
   e.preventDefault();
   const u = document.getElementById('username').value.trim();
   const p = document.getElementById('password').value;
-  // Simples mock de autenticação para começo
   if(u === 'admin' && p === '1234'){
-    // redireciona para a página de frete
-    window.location.href = 'pages/freight.html';
+    window.location.href = '../../pages/freight.html';
   } else {
     alert('Usuário ou senha inválidos');
   }
