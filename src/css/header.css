@@ -1,0 +1,36 @@
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 0;
+    margin-left: 17px;
+    border: none;
+    height: auto;
+}
+
+.conteudo > header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 30px 30px;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    height: 35px;
+}
+
+.conteudo > header > h1 {
+    text-align: left;
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-top: 11px;
+}
+
+.conteudo > header > p {
+    text-align: left;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #6b7280;
+}

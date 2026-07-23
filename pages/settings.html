@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cálculo de Frete - Transportadora</title>
+    <link rel="stylesheet" href="../src/css/global.css" />
+    <link rel="stylesheet" href="../src/css/sidebar.css" />
+    <link rel="stylesheet" href="../src/css/header.css" />
+    <link rel="stylesheet" href="../src/css/settings.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <section>
+        <div class="container-flex">
+          <div class="container-top">
+            <img id="truckicon" src="../images/truck.svg" />
+            <h4>CÁLCULO DE FRETE</h4>
+          </div>
+          <button
+            class="botoes-rodape-esquerdo"
+            onclick="window.location.href = 'freight.html'"
+          >
+            <img
+              class="icons"
+              src="../images/calculator.svg"
+              alt="Cálculo de frete"
+            />
+            Calculadora
+          </button>
+          <button
+            class="botoes-rodape-esquerdo"
+            onclick="window.location.href = 'history.html'"
+          >
+            <img class="icons" src="../images/history.svg" alt="Histórico" />
+            Histórico
+          </button>
+          <button
+            class="botoes-rodape-esquerdo"
+            onclick="window.location.href = 'reports.html'"
+          >
+            <img class="icons" src="../images/reports.svg" alt="Relatório" />
+            Relatórios
+          </button>
+          <button
+            class="botoes-rodape-esquerdo"
+            onclick="window.location.href = 'settings.html'"
+          >
+            <img
+              class="icons"
+              src="../images/settings.svg"
+              alt="Configurações"
+            />
+            Configurações
+          </button>
+          <footer>
+            <img id="usericon" src="../images/user.svg" />
+            <input
+              class="user-button"
+              id="usuarioButton"
+              type="button"
+              value="Usuário"
+            />
+          </footer>
+        </div>
+      </section>
+
+      <section class="conteudo">
+        <header>
+          <h1>Configurações</h1>
+          <p>Gerencie parâmetros, tabelas e preferências do sistema.</p>
+        </header>
+
+        <div class="config-corpo">
+          <div class="config-card">
+            <h2>Dados da Empresa</h2>
+
+            <div class="config-grid config-grid-4">
+              <div class="campo">
+                <label for="nomeEmpresa">Nome da Empresa</label>
+                <input
+                  type="text"
+                  id="nomeEmpresa"
+                  value="Transportadora Exemplo LTDA"
+                />
+              </div>
+              <div class="campo">
+                <label for="cnpj">CNPJ</label>
+                <input type="text" id="cnpj" value="12.345.678/0001-90" />
+              </div>
+              <div class="campo">
+                <label for="telefone">Telefone</label>
+                <input type="text" id="telefone" value="(11) 99999-9999" />
+              </div>
+              <div class="campo">
+                <label for="email">E-mail</label>
+                <input
+                  type="email"
+                  id="email"
+                  value="contato@transportadora.com.br"
+                />
+              </div>
+            </div>
+
+            <div class="config-grid config-grid-2">
+              <div class="campo">
+                <label for="endereco">Endereço</label>
+                <input
+                  type="text"
+                  id="endereco"
+                  value="Rua das Flores, 123 - Centro - São Paulo/SP - 01000-000"
+                />
+              </div>
+              <div class="campo">
+                <label for="inscricaoEstadual">Inscrição Estadual</label>
+                <input
+                  type="text"
+                  id="inscricaoEstadual"
+                  value="123.456.789.112"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="config-card">
+            <h2>Preferências do Sistema</h2>
+
+            <div class="config-grid config-grid-4">
+              <div class="campo">
+                <label for="moeda">Moeda</label>
+                <select id="moeda">
+                  <option>Real (R$)</option>
+                  <option>Dólar (US$)</option>
+                  <option>Euro (€)</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="unidadePeso">Unidade de Peso</label>
+                <select id="unidadePeso">
+                  <option>Quilograma (kg)</option>
+                  <option>Tonelada (t)</option>
+                  <option>Libra (lb)</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="casasDecimais">Casas Decimais no Valor</label>
+                <select id="casasDecimais">
+                  <option>2 casas (0,00)</option>
+                  <option>3 casas (0,000)</option>
+                  <option>0 casas (0)</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="arredondamento">Arredondamento</label>
+                <select id="arredondamento">
+                  <option>Comercial (padrão)</option>
+                  <option>Para cima</option>
+                  <option>Para baixo</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="config-grid config-grid-2 config-grid-align">
+              <div class="campo">
+                <label for="validadeOrcamento"
+                  >Validade padrão do orçamento (dias)</label
+                >
+                <input type="number" id="validadeOrcamento" value="7" />
+              </div>
+
+              <div class="campo-toggle">
+                <label class="switch">
+                  <input type="checkbox" id="mostrarImpostos" checked />
+                  <span class="switch-slider"></span>
+                </label>
+                <div class="campo-toggle-texto">
+                  <span class="campo-toggle-titulo"
+                    >Mostrar impostos no cálculo</span
+                  >
+                  <span class="campo-toggle-descricao"
+                    >Exibe impostos e taxas no detalhamento do cálculo.</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="config-card">
+            <h2>Prefigurações de Impressão e Relatórios</h2>
+
+            <div class="config-grid config-grid-2">
+              <div class="campo">
+                <label for="modeloRelatorio">Modelo de Relatório Padrão</label>
+                <select id="modeloRelatorio">
+                  <option>Modelo Padrão</option>
+                  <option>Modelo Compacto</option>
+                  <option>Modelo Detalhado</option>
+                </select>
+              </div>
+
+              <div class="campo">
+                <label>Logo da Empresa (opcional)</label>
+                <label class="upload-area" for="logoUpload">
+                  <img class="icons" src="../images/upload.svg" alt="" />
+                  <span class="upload-texto-principal"
+                    >Clique para enviar ou arraste o arquivo</span
+                  >
+                  <span class="upload-texto-secundario"
+                    >PNG, JPG ou SVG (máx. 2MB)</span
+                  >
+                  <input
+                    type="file"
+                    id="logoUpload"
+                    accept=".png,.jpg,.jpeg,.svg"
+                    hidden
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div class="config-rodape">
+              <button class="botao-salvar" id="salvarConfig" type="button">
+                <img class="icons" src="../images/save.svg" alt="" />
+                Salvar alterações
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="../src/js/freight.js"></script>
+    <script src="../src/js/settings.js"></script>
+  </body>
+</html>

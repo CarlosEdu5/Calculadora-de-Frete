@@ -1,0 +1,13 @@
+.layout {
+    display: flex;
+}
+
+body {
+    background: rgb(255, 255, 255);
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+h4 {
+    color: white;
+    font-size: 12px;
+}

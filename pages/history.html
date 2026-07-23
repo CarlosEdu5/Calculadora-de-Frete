@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cálculo de Frete - Transportadora</title>
+  <link rel="stylesheet" href="../src/css/global.css">
+  <link rel="stylesheet" href="../src/css/sidebar.css">
+  <link rel="stylesheet" href="../src/css/pages.css">
+  <link rel="stylesheet" href="../src/css/header.css">
+  <link rel="stylesheet" href="../src/css/history.css">
+</head>
+<body>
+  <div class="layout">
+    <section>
+        <div class="container-flex">
+              <div class="container-top">
+                <img id="truckicon" src="../images/truck.svg">
+                <h4>CÁLCULO DE FRETE</h4>
+              </div>
+            <button class="botoes-rodape-esquerdo" onclick="window.location.href='freight.html'">
+              <img class="icons" src="../images/calculator.svg" alt="Cálculo de frete">
+              Calculadora
+            </button>
+            <button class="botoes-rodape-esquerdo" onclick="window.location.href='history.html'">
+              <img class="icons" src="../images/history.svg" alt="Histórico">
+              Histórico
+            </button>
+            <button class="botoes-rodape-esquerdo" onclick="window.location.href='reports.html'">
+              <img class="icons" src="../images/reports.svg" alt="Relatório">
+              Relatórios
+            </button>
+            <button class="botoes-rodape-esquerdo" onclick="window.location.href='settings.html'">
+             <img class="icons" src="../images/settings.svg" alt="Configurações">
+             Configurações
+           </button>
+              <footer>
+                <img id="usericon" src="../images/user.svg">
+                <input class="user-button" id="usuarioButton" type="button" value="Usuário">
+              </footer>
+        </div>
+    </section>
+      
+    <section class="conteudo">
+
+            <header>
+                <h1>Histórico de Cálculos</h1>
+                <p>Consulte os cálculos de frete realizados anteriormente e revise os detalhes.</p>
+            </header>
+
+      <div class="card-filtros">
+        <div class="filtro-linha">
+          <div class="campo campo-busca">
+            <label>Buscar por CTE, remetente ou destinatário</label>
+            <div class="input-icone">
+              <input type="text" placeholder="">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="7"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </div>
+          </div>
+ 
+          <div class="campo">
+            <label>Período</label>
+            <div class="input-icone">
+              <input type="text" value="01/07/2025 - 31/07/2025">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+          </div>
+ 
+          <div class="campo">
+            <label>Status</label>
+            <select>
+              <option>Todos</option>
+              <option>Concluído</option>
+              <option>Em andamento</option>
+              <option>Cancelado</option>
+            </select>
+          </div>
+ 
+          <div class="campo">
+            <label>Tipo de Carga</label>
+            <select>
+              <option>Todos</option>
+              <option>Farma</option>
+            </select>
+          </div>
+ 
+          <button class="btn-limpar-filtros">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+            </svg>
+            Limpar filtros
+          </button>
+        </div>
+      </div>
+      <div class="card-tabela">
+        <table class="tabela-historico">
+          <thead>
+            <tr>
+              <th>CTE</th>
+              <th>Remetente</th>
+              <th>Destinatário</th>
+              <th>Data da Entrega</th>
+              <th>Peso (kg)</th>
+              <th>Frete Total</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="#" class="link-cte">25782</a></td>
+              <td>PROFARMA - DIST.</td>
+              <td>DROGAFONTE LTDA</td>
+              <td><span class="data-principal">01/07/2025</span><span class="data-hora">14:32</span></td>
+              <td>25,30 kg</td>
+              <td class="valor-frete">R$ 321,69</td>
+              <td><span class="badge concluido">Concluído</span></td>
+              <td class="acoes">
+                <button class="btn-icone" title="Visualizar">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </button>
+                <button class="btn-icone" title="Baixar">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="#" class="link-cte">25780</a></td>
+              <td>DROGARIA SAÚDE</td>
+              <td>MED CENTER LTDA</td>
+              <td><span class="data-principal">29/06/2025</span><span class="data-hora">16:45</span></td>
+              <td>32,10 kg</td>
+              <td class="valor-frete">R$ 412,30</td>
+              <td><span class="badge andamento">Em andamento</span></td>
+              <td class="acoes">
+                <button class="btn-icone" title="Visualizar">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </button>
+                <button class="btn-icone" title="Baixar">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="#" class="link-cte">25778</a></td>
+              <td>LABORATÓRIO ABC</td>
+              <td>DROGAFONTE LTDA</td>
+              <td><span class="data-principal">27/06/2025</span><span class="data-hora">08:50</span></td>
+              <td>45,00 kg</td>
+              <td class="valor-frete">R$ 598,20</td>
+              <td><span class="badge cancelado">Cancelado</span></td>
+              <td class="acoes">
+                <button class="btn-icone" title="Visualizar">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </button>
+                <button class="btn-icone" title="Baixar">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="#" class="link-cte">25777</a></td>
+              <td>FARMACIA BEM ESTAR</td>
+              <td>CIRÚRGICA SÃO JOSÉ</td>
+              <td><span class="data-principal">26/06/2025</span><span class="data-hora">14:05</span></td>
+              <td>22,80 kg</td>
+              <td class="valor-frete">R$ 284,10</td>
+              <td><span class="badge concluido">Concluído</span></td>
+              <td class="acoes">
+                <button class="btn-icone" title="Visualizar">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </button>
+                <button class="btn-icone" title="Baixar">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="#" class="link-cte">25776</a></td>
+              <td>CLÍNICA SÃO LUCAS</td>
+              <td>MED CENTER LTDA</td>
+              <td><span class="data-principal">25/06/2025</span><span class="data-hora">10:30</span></td>
+              <td>12,60 kg</td>
+              <td class="valor-frete">R$ 173,80</td>
+              <td><span class="badge concluido">Concluído</span></td>
+              <td class="acoes">
+                <button class="btn-icone" title="Visualizar">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </button>
+                <button class="btn-icone" title="Baixar">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+ 
+        <div class="paginacao">
+          <span class="paginacao-info">Mostrando 1 a 7 de 128 resultados</span>
+          <div class="paginacao-botoes">
+            <button class="pagina-btn" disabled>‹</button>
+            <button class="pagina-btn ativo">1</button>
+            <button class="pagina-btn">2</button>
+            <button class="pagina-btn">3</button>
+            <button class="pagina-btn">4</button>
+            <button class="pagina-btn">5</button>
+            <span class="pagina-reticencias">...</span>
+            <button class="pagina-btn">19</button>
+            <button class="pagina-btn">›</button>
+          </div>
+        </div>
+      </div>
+ 
+    </section>
+  </div>
+ 
+  <script src="../src/js/history.js"></script>
+</body>
+</html>

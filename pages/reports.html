@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Relatórios - Calculadora de Frete</title>
+  <link rel="stylesheet" href="../src/css/global.css">
+  <link rel="stylesheet" href="../src/css/sidebar.css">
+  <link rel="stylesheet" href="../src/css/pages.css">
+  <link rel="stylesheet" href="../src/css/header.css">
+  <link rel="stylesheet" href="../src/css/reports.css">
+</head>
+<body>
+  <div class="layout">
+    <section>
+        <div class="container-flex">
+              <div class="container-top">
+                <img id="truckicon" src="../images/truck.svg">
+                <h4>CÁLCULO DE FRETE</h4>
+              </div>
+            <button class="botoes-rodape-esquerdo" onclick="window.location.href='freight.html'">
+              <img class="icons" src="../images/calculator.svg" alt="Calculadora">
+              Calculadora
+            </button>
+            <button class="botoes-rodape-esquerdo" onclick="window.location.href='history.html'">
+              <img class="icons" src="../images/history.svg" alt="Histórico">
+              Histórico
+            </button>
+            <button class="botoes-rodape-esquerdo botoes-ativo" onclick="window.location.href='reports.html'">
+              <img class="icons" src="../images/reports.svg" alt="Relatório">
+              Relatórios
+            </button>
+            <button class="botoes-rodape-esquerdo" onclick="window.location.href='settings.html'">
+             <img class="icons" src="../images/settings.svg" alt="Configurações">
+             Configurações
+           </button>
+              <footer>
+                <img id="usericon" src="../images/user.svg">
+                <input class="user-button" id="usuarioButton" type="button" value="Usuário">
+              </footer>
+        </div>
+    </section>
+
+    <section class="conteudo">
+
+      <header>
+          <h1>Relatórios</h1>
+          <p>Visualize, analise e exporte relatórios completos dos cálculos de frete.</p>
+      </header>
+
+      <div class="rel-card rel-filtros">
+        <div class="rel-campo">
+          <label for="filtroPeriodo">Período</label>
+          <input type="text" id="filtroPeriodo" class="rel-input rel-input-icone" value="01/07/2025 - 31/07/2025" readonly>
+        </div>
+
+        <div class="rel-campo">
+          <label for="filtroComparar">Comparar com</label>
+          <select id="filtroComparar" class="rel-select">
+            <option>Período anterior</option>
+            <option>Mesmo período ano anterior</option>
+            <option>Não comparar</option>
+          </select>
+        </div>
+
+        <div class="rel-campo">
+          <label for="filtroTipo">Tipo de Relatório</label>
+          <select id="filtroTipo" class="rel-select">
+            <option>Resumo Geral</option>
+            <option>Por Status</option>
+            <option>Por Tipo de Carga</option>
+            <option>Financeiro</option>
+          </select>
+        </div>
+
+        <div class="rel-campo">
+          <label for="filtroAgrupar">Agrupar por</label>
+          <select id="filtroAgrupar" class="rel-select">
+            <option>Dia</option>
+            <option>Semana</option>
+            <option>Mês</option>
+          </select>
+        </div>
+
+        <button class="rel-btn-primario" id="btnFiltrar">
+          <img class="icons-white" src="../images/filter.svg" alt="">
+          Filtrar
+        </button>
+      </div>
+
+      <div class="rel-grid-cards" id="cardsResumo">
+      </div>
+
+      <div class="rel-grid-graficos">
+        <div class="rel-card rel-card-grafico">
+          <h3>Faturamento estimado (R$)</h3>
+          <div class="rel-legenda-linha">
+            <span><i class="rel-dot rel-dot-atual"></i> Período atual</span>
+            <span><i class="rel-dot rel-dot-anterior"></i> Período anterior</span>
+          </div>
+          <canvas id="graficoFaturamento" height="220"></canvas>
+        </div>
+
+        <div class="rel-card rel-card-grafico">
+          <h3>Cálculos por status</h3>
+          <div class="rel-donut-wrap">
+            <canvas id="graficoStatus" height="220"></canvas>
+            <div class="rel-donut-legenda" id="legendaStatus"></div>
+          </div>
+        </div>
+
+        <div class="rel-card rel-card-grafico">
+          <h3>Distribuição por tipo de carga</h3>
+          <div class="rel-barras" id="barrasCarga"></div>
+        </div>
+      </div>
+
+      <div class="rel-grid-inferior">
+        <div class="rel-card rel-card-tabela">
+          <h3>Resumo por dia</h3>
+          <div class="rel-tabela-scroll">
+            <table class="rel-tabela" id="tabelaResumo">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Total de Cálculos</th>
+                  <th>Concluídos</th>
+                  <th>Em andamento</th>
+                  <th>Cancelados</th>
+                  <th>Faturamento Estimado (R$)</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+              <tfoot></tfoot>
+            </table>
+          </div>
+        </div>
+
+        <div class="rel-card rel-card-export">
+          <h3>Exportar relatório</h3>
+          <p>Selecione o formato desejado para exportar o relatório com os dados do período filtrado.</p>
+          <div class="rel-export-opcoes">
+            <button class="rel-export-btn" data-formato="pdf">
+              <span class="rel-export-icone rel-export-pdf">PDF</span>
+              Exportar PDF
+            </button>
+            <button class="rel-export-btn" data-formato="excel">
+              <span class="rel-export-icone rel-export-excel">XLS</span>
+              Exportar Excel
+            </button>
+            <button class="rel-export-btn" data-formato="csv">
+              <span class="rel-export-icone rel-export-csv">CSV</span>
+              Exportar CSV
+            </button>
+            <button class="rel-export-btn" data-formato="print">
+              <span class="rel-export-icone rel-export-print">🖶</span>
+              Imprimir
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+  <script src="../src/js/reports.js"></script>
+</body>
+</html>
